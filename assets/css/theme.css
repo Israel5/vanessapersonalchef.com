@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Vanessa Personal Chef — theme.css (background-art fix)
+   ========================================================================== */
+
+/* ---- Tokens ---- */
+:root {
+    --bg: #0a0a0a;
+    --fg: #e5e5e5;
+    --muted: #a1a1aa;
+    --card: #111113;
+    --border: #1f1f23;
+    --ring: #2a2a2e;
+    --shadow: 0 30px 80px rgba(0, 0, 0, .45);
+    --header-h: 72px;
+}
+
+.light {
+    --bg: #ffffff;
+    --fg: #0a0a0a;
+    --muted: #3f3f46;
+    --card: #ffffff;
+    --border: #e4e4e7;
+    --ring: #d4d4d8;
+    --shadow: 0 30px 80px rgba(0, 0, 0, .12);
+}
+
+/* ---- Base ---- */
+html,
+body {
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+/* ---- Header (fixed) ---- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    background: color-mix(in oklab, var(--bg) 85%, transparent);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: saturate(180%) blur(6px);
+}
+
+.header-spacer {
+    height: var(--header-h);
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+}
+
+/* ---- Hero with neutral GRAY gradient ---- */
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    /* ensures the background and glow stay inside */
+    z-index: 1;
+}
+
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(80% 60% at 65% -10%, rgba(113, 113, 122, .45) 0%, rgba(113, 113, 122, .18) 35%, transparent 70%),
+        linear-gradient(180deg, rgba(39, 39, 42, .45) 0%, rgba(39, 39, 42, .20) 20%, transparent 60%);
+}
+
+.hero-inner {
+    padding-bottom: 0 !important;
+}
+
+/* ---- Chef artwork as BACKGROUND: always touches the section below --------
+     We create a fixed-height canvas within the hero that paints the PNG as a
+     bottom-anchored background. Because backgrounds end at the box edge,
+     the next <section> will touch perfectly (no transparent PNG tail issues).
+  */
+.chef-art {
+    width: min(820px, 92vw);
+    height: clamp(520px, 66vh, 780px);
+    /* bigger; adjust if you want */
+    margin: 0 auto;
+    /* centered */
+    background-image: url("./assets/images/chef_vanessa.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    /* key: anchor to the block’s bottom */
+    background-size: contain;
+    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, .45));
+    /* make sure NOTHING adds space below this block */
+    padding: 0;
+    border: 0;
+}
+
+@media (max-width:768px) {
+    .chef-art {
+        width: min(560px, 96vw);
+        height: clamp(380px, 58vh, 560px);
+    }
+}
+
+.chef-frame {
+    /* width: min(820px, 92vw); */
+    /* height: clamp(520px, 66vh, 780px); */
+    /* height: clamp(460px, 60vh, 700px); */
+    width: clamp(510px, 40vh, 700px);
+    /* margin: 0 auto; */
+    /* overflow: hidden; */
+}
+
+/* No negative margins, no transforms — the hero simply ends after .chef-art.
+     Therefore the NEXT section starts exactly where the visible chef ends. */
+.trust-strip {
+    margin-top: 0 !important;
+}
+
+/* ---- Legibility in light mode ---- */
+.light h1,
+.light h2,
+.light h3,
+.light h4 {
+    color: #0a0a0a;
+}
+
+.light p,
+.light span,
+.light li,
+.light div {
+    color: #1a1a1a;
+}
+
+.light .text-zinc-700 {
+    color: #111827 !important;
+}
+
+.light .text-zinc-600 {
+    color: #1f2937 !important;
+}
+
+.light .text-zinc-500 {
+    color: #374151 !important;
+}
+
+/* ---- UI primitives ---- */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+}
+
+.chip {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .25rem .7rem;
+    color: var(--muted);
+    font-size: .875rem;
+}
+
+.btn {
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .6rem 1rem;
+    background: transparent;
+    color: var(--fg);
+    transition: background .2s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, .05);
+}
+
+.btn-solid {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+}
+
+.btn-solid:hover {
+    opacity: .9;
+}
+
+/* ---- Inputs / Select (dark select fix) ---- */
+.input,
+.select,
+.textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: .65rem;
+    padding: .7rem .9rem;
+}
+
+.select {
+    background-color: transparent;
+}
+
+.select:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(120, 120, 120, .25);
+}
+
+.select option {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--muted);
+}
+
+.ringable:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(120, 120, 120, .25);
+}
+
+/* ---- Logo fallback if you only have a light version ---- */
+.light .logo-auto-invert {
+    filter: invert(1) grayscale(1);
+}

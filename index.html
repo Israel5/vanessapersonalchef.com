@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vanessa Personal Chef</title>
+    <meta name="description"
+        content="Vanessa — Personal Chef em Montreal. Menus personalizados, refeições semanais e eventos privados." />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/theme.css" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+
+<body class="antialiased">
+    <!-- HEADER (fixed) -->
+    <header class="site-header">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3">
+                <img id="logo" class="h-10 w-auto" src="./assets/images/logo_light.png"
+                    data-dark="./assets/images/logo_light.png" data-light="./assets/images/logo_dark.png"
+                    alt="Logo Vanessa Personal Chef">
+                <span class="sr-only">Vanessa Personal Chef</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="#home" class="hover:underline" data-i18n="nav.home">Início</a>
+                <a href="#services" class="hover:underline" data-i18n="nav.services">Serviços</a>
+                <a href="#pricing" class="hover:underline" data-i18n="nav.pricing">Preços</a>
+                <a href="#about" class="hover:underline" data-i18n="nav.about">Sobre</a>
+                <a href="#testimonials" class="hover:underline" data-i18n="nav.testimonials">Depoimentos</a>
+                <a href="#contact" class="hover:underline" data-i18n="nav.contact">Contato</a>
+                <a href="https://portal.vanessapersonalchef.com" target="_blank" rel="noopener" class="btn"
+                    data-i18n="nav.portal">Área Restrita</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Sun/Moon -->
+                <button id="themeToggle" class="btn ringable" aria-label="Alternar tema" title="Alternar tema">
+                    <svg class="icon-sun h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l-1.5-1.5M20.5 20.5L19 19M5 19l-1.5 1.5M20.5 3.5L19 5">
+                        </path>
+                    </svg>
+                    <svg class="icon-moon h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>
+                    </svg>
+                </button>
+
+                <!-- Language -->
+                <label class="sr-only" for="lang">Idioma</label>
+                <select id="lang" class="select ringable text-sm">
+                    <option value="pt" selected>🇧🇷 PT</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Spacer for fixed header -->
+    <div class="header-spacer"></div>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-gradient" aria-hidden="true"></div>
+
+        <div class="container mx-auto px-6 hero-inner grid md:grid-cols-2 items-center gap-10">
+            <div class="order-1 md:order-1 hero-copy">
+                <div class="inline-flex items-center gap-2 mb-4 mt-16 md:mt-0">
+                    <span class="chip" data-i18n="hero.badge">Chef pessoal • Montreal, QC</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-semibold leading-[1.1]" data-i18n="hero.title">
+                    Vanessa — Personal Chef
+                </h1>
+                <p class="mt-4 text-lg text-zinc-300 light:text-zinc-700" data-i18n="hero.subtitle">
+                    Menus personalizados, refeições semanais e experiências privadas — com 15+ anos de carreira no
+                    🇧🇷 Brasil, 🇮🇪 Irlanda e 🇨🇦 Canadá.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="https://forms.gle/TtAX9kCXFFTHvcSr9" target="_blank" rel="noopener"
+                        class="btn btn-solid ringable" data-i18n="cta.form">Preencher formulário</a>
+                    <a href="#services" class="btn ringable" data-i18n="cta.services">Ver serviços</a>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-4 text-sm text-zinc-400 light:text-zinc-600">
+                    <span data-i18n="hero.location">Montreal e região</span>
+                    <span class="hidden md:inline">·</span>
+                    <span data-i18n="hero.location2">Atendimento em domicílio</span>
+                    <span class="hidden md:inline">·</span>
+                    <a href="https://instagram.com/vanessa_personalchef" target="_blank" rel="noopener"
+                        class="hover:underline">@vanessa_personalchef</a>
+                    <span class="hidden md:inline">·</span>
+                    <a href="tel:+14389260103" class="hover:underline" data-i18n="hero.phone">(438) 926-0103</a>
+                </div>
+            </div>
+
+            <!-- IMAGE WRAPPER (clipped) -->
+            <div class="order-2 md:order-2 relative z-10">
+                <div class="chef-frame">
+                    <img src="./assets/images/chef_vanessa.png" alt="Chef Vanessa Pereira" class="hero-chef">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP (must touch the image) -->
+    <section id="trustStrip" class="container mx-auto px-6 pb-6 trust-strip">
+        <div class="card rounded-2xl p-4 flex flex-wrap items-center justify-center gap-3 text-sm">
+            <span class="chip" data-i18n="trust.1">+<span id="years-experience"></span> anos de experiência</span>
+            <span class="chip" data-i18n="trust.2">Formada em Gastronomia</span>
+            <span class="chip" data-i18n="trust.3">Atendimento personalizado</span>
+            <span class="chip" data-i18n="trust.4">Comida fresca e saborosa</span>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container mx-auto px-6 py-16">
+        <div class="flex items-end justify-between gap-4 mb-8">
+            <h2 class="text-3xl md:text-4xl font-semibold" data-i18n="services.title">Serviços</h2>
+            <a href="https://forms.gle/TtAX9kCXFFTHvcSr9" target="_blank" rel="noopener" class="text-sm hover:underline"
+                data-i18n="services.cta">Preencher formulário</a>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s1.title">Personal Chef</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s1.desc">Comida feita sob medida para você:
+                    compras (opcional), preparo, serviço e organização da cozinha.</p>
+            </article>
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s2.title">Elaboração de cardápio</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s2.desc">Menus exclusivos para datas
+                    especiais, rotinas e restrições alimentares.</p>
+            </article>
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s3.title">Refeições semanais</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s3.desc">Planejamento e preparo de
+                    refeições frescas para a sua semana.</p>
+            </article>
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s4.title">Eventos privados</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s4.desc">Jantares intimistas, degustações e
+                    coquetéis no conforto da sua casa.</p>
+            </article>
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s5.title">Consultoria</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s5.desc">Otimização de cozinha doméstica,
+                    organização e fornecedores.</p>
+            </article>
+            <article class="card rounded-xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="s6.title">Aulas particulares</h3>
+                <p class="mt-2 text-zinc-400 light:text-zinc-700" data-i18n="s6.desc">Técnicas essenciais e receitas
+                    inspiradas em Brasil, Irlanda e Canadá.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="container mx-auto px-6 py-8">
+        <div class="card rounded-2xl p-8">
+            <h2 class="text-3xl font-semibold mb-6" data-i18n="pricing.title">Preços (por hora)</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card rounded-xl p-6">
+                    <h3 class="text-xl font-medium" data-i18n="pricing.p1.t">Preparação de pratos</h3>
+                    <p class="mt-1 text-sm text-zinc-500 light:text-zinc-700" data-i18n="pricing.p1.s">personal chef</p>
+                    <div class="mt-4 text-3xl font-semibold">$35</div>
+                </div>
+                <div class="card rounded-xl p-6">
+                    <h3 class="text-xl font-medium" data-i18n="pricing.p2.t">Elaboração de cardápio + Preparação</h3>
+                    <div class="mt-6 text-3xl font-semibold">$45</div>
+                </div>
+                <div class="card rounded-xl p-6">
+                    <h3 class="text-xl font-medium" data-i18n="pricing.p3.t">Cardápio + Compras* + Preparação</h3>
+                    <div class="mt-6 text-3xl font-semibold">$50</div>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-zinc-500 light:text-zinc-700" data-i18n="pricing.note">* Valor dos ingredientes
+                não incluso.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-semibold" data-i18n="about.title">Sobre Vanessa</h2>
+                <p class="mt-4 text-zinc-300 light:text-zinc-800" data-i18n="about.p1"></p>
+                <p class="mt-3 text-zinc-400 light:text-zinc-700" data-i18n="about.p2"></p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <span class="chip" data-i18n="about.badge1"></span>
+                    <span class="chip" data-i18n="about.badge2"></span>
+                    <span class="chip" data-i18n="about.badge3"></span>
+                </div>
+            </div>
+            <div class="card rounded-2xl p-6">
+                <h3 class="text-xl font-medium" data-i18n="process.title"></h3>
+                <ol class="mt-4 space-y-3 text-zinc-300 light:text-zinc-800">
+                    <li data-i18n="process.1"></li>
+                    <li data-i18n="process.2"></li>
+                    <li data-i18n="process.3"></li>
+                    <li data-i18n="process.4"></li>
+                </ol>
+                <div class="mt-6 flex gap-3">
+                    <a href="https://forms.gle/TtAX9kCXFFTHvcSr9" target="_blank" rel="noopener"
+                        class="btn btn-solid ringable" data-i18n="process.cta"></a>
+                    <a href="https://instagram.com/vanessa_personalchef" target="_blank" rel="noopener"
+                        class="btn ringable" data-i18n="process.ig"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-8" data-i18n="testimonials.title"></h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <figure class="card rounded-xl p-6">
+                <blockquote class="text-zinc-300 light:text-zinc-800" data-i18n="t1.txt"></blockquote>
+                <figcaption class="mt-4 text-sm text-zinc-500 light:text-zinc-700" data-i18n="t1.by"></figcaption>
+            </figure>
+            <figure class="card rounded-xl p-6">
+                <blockquote class="text-zinc-300 light:text-zinc-800" data-i18n="t2.txt"></blockquote>
+                <figcaption class="mt-4 text-sm text-zinc-500 light:text-zinc-700" data-i18n="t2.by"></figcaption>
+            </figure>
+            <figure class="card rounded-xl p-6">
+                <blockquote class="text-zinc-300 light:text-zinc-800" data-i18n="t3.txt"></blockquote>
+                <figcaption class="mt-4 text-sm text-zinc-500 light:text-zinc-700" data-i18n="t3.by"></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container mx-auto px-6 pb-24">
+        <div class="card rounded-2xl p-8">
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="text-3xl font-semibold" data-i18n="contact.title"></h2>
+                    <p class="mt-3 text-zinc-400 light:text-zinc-700" data-i18n="contact.sub"></p>
+                    <div class="mt-6 space-y-3 text-zinc-300 light:text-zinc-800">
+                        <p data-i18n="contact.phone"></p>
+                        <p>Instagram: <a href="https://instagram.com/vanessa_personalchef" target="_blank"
+                                rel="noopener" class="hover:underline">@vanessa_personalchef</a></p>
+                        <p><a href="https://forms.gle/TtAX9kCXFFTHvcSr9" target="_blank" rel="noopener"
+                                class="hover:underline" data-i18n="contact.form"></a></p>
+                    </div>
+                </div>
+                <form class="grid grid-cols-1 gap-4">
+                    <input class="input ringable" placeholder="" aria-label="name" data-ph="form.name" />
+                    <input class="input ringable" placeholder="" type="email" aria-label="email" data-ph="form.email" />
+                    <input class="input ringable" placeholder="" aria-label="phone" data-ph="form.phone" />
+                    <textarea rows="4" class="textarea ringable" placeholder="" aria-label="message"
+                        data-ph="form.msg"></textarea>
+                    <div class="flex gap-3">
+                        <a href="https://forms.gle/TtAX9kCXFFTHvcSr9" target="_blank" rel="noopener"
+                            class="btn btn-solid ringable" data-i18n="contact.send"></a>
+                        <a href="https://portal.vanessapersonalchef.com" target="_blank" rel="noopener"
+                            class="btn ringable" data-i18n="contact.portal"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="./assets/images/logo_light.png" alt="Logo Vanessa"
+                    class="h-6 w-auto opacity-90 logo-auto-invert">
+                <span class="text-sm text-zinc-500 light:text-zinc-700">© <span id="year"></span> Vanessa Personal
+                    Chef</span>
+            </div>
+            <div class="text-sm text-zinc-500 light:text-zinc-700" data-i18n="footer.rights"></div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/app.js" defer></script>
+</body>
+
+</html>
